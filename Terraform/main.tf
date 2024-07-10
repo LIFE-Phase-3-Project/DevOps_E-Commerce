@@ -4,8 +4,9 @@ provider "google" {
 }
 
 resource "google_compute_instance" "default" {
-  name         = "e-commerce-VM"
+  name         = "e-commerce-vm"
   machine_type = "e2-medium"
+  zone         = "europe-west3-a"
 
   boot_disk {
     initialize_params {
