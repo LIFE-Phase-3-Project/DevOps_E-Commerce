@@ -1,12 +1,7 @@
-provider "google" {
-  project = "e-commerce-life"
-  region  = "europe-west3"
-}
-
 resource "google_compute_instance" "default" {
-  name         = "e-commerce-vm"
+  name = "e-commerce-vm"
   machine_type = "e2-medium"
-  zone         = "europe-west3-a"
+  zone = var.zone
 
   boot_disk {
     initialize_params {
@@ -22,18 +17,5 @@ resource "google_compute_instance" "default" {
     }
   }
 
-  tags = ["http-server", "https-server"]
-}
-
-resource "google_compute_firewall" "default" {
-  name    = "allow-http-https"
-  network = "default"
-
-  allow {
-    protocol = "tcp"
-    ports    = ["80", "443"]
-  }
-
-  source_ranges = ["0.0.0.0/0"]
-  target_tags   = ["http-server", "https-server"]
+  tags = [ "http-server", "https-server" ]
 }
