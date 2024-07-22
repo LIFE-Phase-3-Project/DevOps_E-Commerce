@@ -1,5 +1,5 @@
 resource "google_compute_instance" "default" {
-  name = "e-commerce-vm"
+  name = var.vm_name
   machine_type = "e2-medium"
   zone = var.zone
 
