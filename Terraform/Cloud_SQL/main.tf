@@ -11,7 +11,7 @@ resource "google_sql_database_instance" "sql_server_instance" {
   database_version = "SQLSERVER_2019_STANDARD"
   
   settings {
-    tier = "db-custom-2-8192"
+    tier = "db-custom-1-3840"
     availability_type = "REGIONAL"
     
     backup_configuration {
