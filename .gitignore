@@ -1,5 +1,5 @@
-**/.terraform/providers/registry.terraform.io/hashicorp/google/5.38.0/windows_amd64/terraform-provider-google_v5.38.0_x5.exe
-**/.terraform/providers/registry.terraform.io/hashicorp/google/5.38.0/windows_amd64/LICENSE.txt
+**/.terraform/providers/registry.terraform.io/hashicorp/google/*.*.*/windows_amd64/terraform-provider-google_v*.*.*_x*.exe
+**/.terraform/providers/registry.terraform.io/hashicorp/google/*.*.*/windows_amd64/LICENSE.txt
 **/terraform.tfstate.backup
 **/terraform.tfstate
 **/.terraform.lock.hcl

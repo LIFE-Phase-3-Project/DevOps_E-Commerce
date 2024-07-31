@@ -13,6 +13,11 @@ variable "service_account_email" {
   type = string
 }
 
+variable "repo_owner" {
+  description = "The name of the repository owner"
+  type = string
+}
+
 variable "frontend_repo_name" {
   description = "The name of the repository for the Frontend"
   type = string

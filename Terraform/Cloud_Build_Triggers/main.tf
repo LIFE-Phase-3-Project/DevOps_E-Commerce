@@ -4,11 +4,32 @@ resource "google_cloudbuild_trigger" "frontend-development-trigger" {
   location = var.region
 
   github {
-    owner = "donzzi"
+    owner = var.repo_owner
     name = var.frontend_repo_name
     push {
       branch = "^development$"
     }
+  }
+
+  filename = "cloudbuild.yaml"
+  service_account = var.service_account_email
+}
+
+resource "google_cloudbuild_trigger" "frontend-main-trigger" {
+  project = var.project
+  name = "frontend-main-trigger"
+  location = var.region
+
+  github {
+    owner = var.repo_owner
+    name = var.frontend_repo_name
+    push {
+      branch = "^main$"
+    }
+  }
+
+  approval_config {
+     approval_required = true 
   }
 
   filename = "cloudbuild.yaml"
@@ -21,11 +42,15 @@ resource "google_cloudbuild_trigger" "backend-master-trigger" {
   location = var.region
 
   github {
-    owner = "donzzi"
+    owner = var.repo_owner
     name = var.backend_repo_name
     push {
       branch = "^master$"
     }
+  }
+
+  approval_config {
+     approval_required = true 
   }
 
   filename = "cloudbuild.yaml"
