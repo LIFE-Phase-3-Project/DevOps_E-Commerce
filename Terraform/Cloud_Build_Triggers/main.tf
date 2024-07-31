@@ -1,20 +1,4 @@
-resource "google_cloudbuild_trigger" "frontend-development-trigger" {
-  project = var.project
-  name = "frontend-development-trigger"
-  location = var.region
-
-  github {
-    owner = var.repo_owner
-    name = var.frontend_repo_name
-    push {
-      branch = "^development$"
-    }
-  }
-
-  filename = "cloudbuild.yaml"
-  service_account = var.service_account_email
-}
-
+# Frontend Branches
 resource "google_cloudbuild_trigger" "frontend-main-trigger" {
   project = var.project
   name = "frontend-main-trigger"
@@ -35,6 +19,25 @@ resource "google_cloudbuild_trigger" "frontend-main-trigger" {
   filename = "cloudbuild.yaml"
   service_account = var.service_account_email
 }
+
+resource "google_cloudbuild_trigger" "frontend-development-trigger" {
+  project = var.project
+  name = "frontend-development-trigger"
+  location = var.region
+
+  github {
+    owner = var.repo_owner
+    name = var.frontend_repo_name
+    push {
+      branch = "^development$"
+    }
+  }
+
+  filename = "cloudbuild.yaml"
+  service_account = var.service_account_email
+}
+
+# Backend Branches
 
 resource "google_cloudbuild_trigger" "backend-master-trigger" {
   project = var.project
