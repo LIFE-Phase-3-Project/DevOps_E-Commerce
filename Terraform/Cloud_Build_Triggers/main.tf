@@ -1,6 +1,6 @@
 # Frontend Branches
 resource "google_cloudbuild_trigger" "frontend-main-trigger" {
-  project = var.project
+  project = var.project_id
   name = "frontend-main-trigger"
   location = var.region
 
@@ -21,7 +21,7 @@ resource "google_cloudbuild_trigger" "frontend-main-trigger" {
 }
 
 resource "google_cloudbuild_trigger" "frontend-development-trigger" {
-  project = var.project
+  project = var.project_id
   name = "frontend-development-trigger"
   location = var.region
 
@@ -38,9 +38,8 @@ resource "google_cloudbuild_trigger" "frontend-development-trigger" {
 }
 
 # Backend Branches
-
 resource "google_cloudbuild_trigger" "backend-master-trigger" {
-  project = var.project
+  project = var.project_id
   name = "backend-master-trigger"
   location = var.region
 
