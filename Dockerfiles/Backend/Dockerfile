@@ -1,7 +1,7 @@
 FROM mcr.microsoft.com/dotnet/aspnet:8.0 AS base
 WORKDIR /app
 EXPOSE 8080
-EXPOSE 8081
+EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
@@ -9,6 +9,7 @@ WORKDIR /src
 COPY ["Life-Ecommerce/Service.csproj", "Life-Ecommerce/"]
 COPY ["Application/Application.csproj", "Application/"]
 COPY ["Presistence/Presistence.csproj", "Presistence/"]
+COPY ["BackgroundJobs/BackgroundJobs.csproj", "BackgroundJobs/"]
 COPY ["Domain/Domain.csproj", "Domain/"]
 RUN dotnet restore "Life-Ecommerce/Service.csproj"
 COPY . .
