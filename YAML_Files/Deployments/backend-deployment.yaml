@@ -31,6 +31,66 @@ spec:
               key: ConnectionStrings__DevConnection
         - name: GOOGLE_APPLICATION_CREDENTIALS
           value: "/var/secrets/google/credentials.json"
+        - name: STRIPE_SECRET_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: Stripe__SecretKey
+        - name: STRIPE_WEBHOOK_KEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: Stripe__WebhookKey
+        - name: ELASTICSEARCH_URI
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: ElasticSearch__Uri
+        - name: ELASTICSEARCH_CLOUDID
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: ElasticSearch__CloudId
+        - name: ELASTICSEARCH_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: ElasticSearch__Password
+        - name: ELASTICSEARCH_APIKEY
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: ElasticSearch__ApiKey
+        - name: REDIS_CONNECTION_STRING
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: Redis__ConnectionString
+        - name: AUTH0_DOMAIN
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: Auth0__Domain
+        - name: AUTH0_AUDIENCE
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: Auth0__Audience
+        - name: AUTH0_CLIENT_ID
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: Auth0__ClientId
+        - name: AUTH0_CLIENT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: Auth0__ClientSecret
+        - name: AUTH0_NAMESPACE
+          valueFrom:
+            secretKeyRef:
+              name: app-secrets
+              key: Auth0__Namespace
         readinessProbe:
           httpGet:
             path: /health/ready
